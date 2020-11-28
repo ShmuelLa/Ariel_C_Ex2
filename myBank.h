@@ -1,6 +1,7 @@
 #ifndef myBank_h
 
 #define myBank_h
-    void tester();
+    void menu();
+    void openAccount(int); 
 #endif
 

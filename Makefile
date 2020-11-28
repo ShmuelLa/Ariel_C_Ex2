@@ -1,7 +1,7 @@
 CC = gcc
 CFLAG = -Wall -Wextra -g -o
 
-bank: 
+all: 
 	$(CC) main.c myBank.c $(CFLAG) main.o
 
 git:
@@ -10,4 +10,4 @@ git:
 	git push
 
 clean:
-	rm -f *.o main
+	rm -f *.o
