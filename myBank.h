@@ -2,6 +2,9 @@
 
 #define myBank_h
     void menu();
-    void openAccount(int); 
+    void openAccount(); 
+    double deposit();
+    void depositTrans(int);
+    void balance(int);
 #endif
 
