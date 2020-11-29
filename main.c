@@ -3,52 +3,52 @@
 #include "myBank.h"
 
 int main(void) {
-    char menu_loop = 'M';
+    char ui = 'M';
     menu();
-    while (menu_loop != 'E')
+    while (ui != 'E')
     {
-        scanf("%s", &menu_loop);
-        if (menu_loop == 'O') {
+        scanf("%s", &ui);
+        if (ui == 'O') {
             openAccount();
             menu();
         }
-        if (menu_loop == 'B') {
+        if (ui == 'B') {
             int acc_num;
             printf("Please enter account number: ");
             scanf("%d", &acc_num);
             balance(acc_num);
             menu();
         }
-        if (menu_loop == 'D') {
+        if (ui == 'D') {
             int acc_num;
             printf("Please enter account number: ");
             scanf("%d", &acc_num);
             depositTrans(acc_num);
             menu();
         }
-        if (menu_loop == 'W') {
+        if (ui == 'W') {
             int acc_num;
             printf("Please enter account number: ");
             scanf("%d", &acc_num);
             withdraw(acc_num);
             menu();
         }
-        if (menu_loop == 'C') {
+        if (ui == 'C') {
             int acc_num;
             printf("Please enter account number: ");
             scanf("%d", &acc_num);
             close(acc_num);
             menu();
         }
-        if (menu_loop == 'I') {
+        if (ui == 'I') {
             interest();
             menu();
         }
-        if (menu_loop == 'P') {
+        if (ui == 'P') {
             printaccs();
             menu();
         }
-        else {
+        if (ui!='O'||ui!='B'||ui!='P'||ui!='I'||ui!='C'|| ui!='W'||ui!='D') {
             printf("Invalid transaction type");
             printf("\n");
         }
