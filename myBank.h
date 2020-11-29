@@ -6,5 +6,9 @@
     double deposit();
     void depositTrans(int);
     void balance(int);
+    void withdraw(int);
+    void close(int);
+    void interest();
+    void printaccs();
 #endif
 

@@ -26,5 +26,27 @@ int main(void) {
             depositTrans(acc_num);
             menu();
         }
+        if (menu_loop == 'W') {
+            int acc_num;
+            printf("Please enter account number: ");
+            scanf("%d",&acc_num);
+            withdraw(acc_num);
+            menu();
+        }
+        if (menu_loop == 'C') {
+            int acc_num;
+            printf("Please enter account number: ");
+            scanf("%d",&acc_num);
+            close(acc_num);
+            menu();
+        }
+        if (menu_loop == 'I') {
+            interest();
+            menu();
+        }
+        if (menu_loop == 'P') {
+            printaccs();
+            menu();
+        }
     }
 }
