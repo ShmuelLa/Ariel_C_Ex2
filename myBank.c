@@ -25,10 +25,11 @@ void openAccount() {
             counter++;
         }
         else {
-            accs_arr[i][0]=1;
+            accs_arr[i][0] = 1;
+            accs_arr[i][1] = i+901;
             int acc_num;
             double dsum;
-            acc_num = accs_arr[i][1]+901;
+            acc_num = accs_arr[i][1];
             dsum = deposit();
             accs_arr[i][2]+=dsum;
             printf("New account number is: %d \n",acc_num);
@@ -94,6 +95,7 @@ void withdraw(int acc_num) {
         else {
             accs_arr[acc_num-901][2] -= w_sum;
             printf("The new balance is: %.2f",accs_arr[acc_num-901][2]);
+            printf("\n");
         }
     }
 }
@@ -130,7 +132,7 @@ void printaccs() {
     for (int i=0; i<arr_size; i++) {
         if (accs_arr[i][0] == 1) {
             int acc_num;
-            acc_num = accs_arr[i][1]+901;
+            acc_num = accs_arr[i][1];
             printf("The balance of account number %d is: %.2f ",acc_num,accs_arr[acc_num-901][2]);
             printf("\n");
         }
