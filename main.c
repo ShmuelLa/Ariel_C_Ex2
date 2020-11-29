@@ -2,6 +2,7 @@
 #include <string.h>
 #include "myBank.h"
 
+
 int main(void) {
     char ui = 'M';
     menu();
@@ -48,7 +49,7 @@ int main(void) {
             printaccs();
             menu();
         }
-        if (ui!='O'||ui!='B'||ui!='P'||ui!='I'||ui!='C'|| ui!='W'||ui!='D') {
+        else if (ui!='O'&&ui!='B'&&ui!='P'&&ui!='I'&&ui!='C'&&ui!='W'&&ui!='D'&&ui!='E') {
             printf("Invalid transaction type");
             printf("\n");
         }
