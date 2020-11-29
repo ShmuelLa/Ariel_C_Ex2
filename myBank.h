@@ -1,6 +1,7 @@
 #ifndef myBank_h
 
 #define myBank_h
+    void init();
     void menu();
     void openAccount(); 
     double deposit();

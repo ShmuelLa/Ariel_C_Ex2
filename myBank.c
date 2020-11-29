@@ -2,6 +2,8 @@
 #include "myBank.h"
 
 static double accs_arr[50][3];
+static int accs_size = sizeof(accs_arr)/sizeof(accs_arr[0]);
+
 static char* menu_text = "Please choose a transaction type: "
     "\n O-Open Account"
     "\n B-Balance Inquiry" 
@@ -13,14 +15,21 @@ static char* menu_text = "Please choose a transaction type: "
     "\n E-Exit"
     "\n";
 
+void init() {
+    for (int i=0; i<accs_size; i++) {
+        accs_arr[i][0] = 0;
+        accs_arr[i][1] = i+901;
+        accs_arr[i][2] = 0;
+    }
+}
+
 void menu() {
     printf("%s",menu_text);
 }
 
 void openAccount() {
     int counter = 0;
-    int arr_size = sizeof(accs_arr);
-    for (int i=0; i<arr_size; i++) {
+    for (int i=0; i<accs_size; i++) {
         if (accs_arr[i][0]==1) {
             counter++;
         }
@@ -117,10 +126,9 @@ void close(int acc_num) {
 
 void interest() {
     double interest_r;
-    int arr_size = sizeof(accs_arr);
     printf("Please enter interest rate: ");
-    scanf("%lf",&interest_r);
-    for (int i=0; i<arr_size; i++) {
+    scanf("%lf", &interest_r);
+    for (int i=0; i<accs_size; i++) {
         if (accs_arr[i][0] == 1) {
             accs_arr[i][2] *= interest_r;
         }
@@ -128,8 +136,7 @@ void interest() {
 }
 
 void printaccs() {
-    int arr_size = sizeof(accs_arr);
-    for (int i=0; i<arr_size; i++) {
+    for (int i=0; i<accs_size; i++) {
         if (accs_arr[i][0] == 1) {
             int acc_num;
             acc_num = accs_arr[i][1];
