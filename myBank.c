@@ -4,7 +4,7 @@
 static double accs_arr[50][3];
 static int accs_size = sizeof(accs_arr)/sizeof(accs_arr[0]);
 
-static char* menu_text = "\nPlease choose a transaction type: "
+static char* menu_text = "\nPlease choose a transaction type:"
     "\n O-Open Account"
     "\n B-Balance Inquiry" 
     "\n D-Deposit"
@@ -54,6 +54,9 @@ void balance(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
         printf("Please enter a legal account number between the range 901-950");
         return;
+    }
+    else if (accs_arr[acc_num-901][0] != 1) {
+        printf("This account is closed");
     }
     else {
         printf("The balance of account number %d is: %.2f ",acc_num,accs_arr[acc_num-901][2]);

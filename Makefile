@@ -7,7 +7,10 @@ all:
 git:
 	git add -A
 	git commit -m "$m"
-	git push
+	git push origin main
+
+test:
+	./test.bash
 
 clean:
 	rm -f *.o
