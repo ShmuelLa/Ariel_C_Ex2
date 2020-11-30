@@ -2,7 +2,6 @@
 #include <string.h>
 #include "myBank.h"
 
-
 int main(void) {
     char ui = 'M';
     menu();
