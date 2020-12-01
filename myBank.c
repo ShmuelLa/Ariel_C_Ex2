@@ -26,13 +26,18 @@ void openAccount() {
             counter++;
         }
         else {
-            accs_arr[i][0] = 1;
-            accs_arr[i][1] = i+901;
             int acc_num;
             double dsum;
-            acc_num = accs_arr[i][1];
             dsum = deposit();
+            if (dsum == -1) {
+                printf("Failed to read the amount");
+                printf("\n");
+                return;
+            }
+            accs_arr[i][0] = 1;
+            accs_arr[i][1] = i+901;
             accs_arr[i][2]+=dsum;
+            acc_num = accs_arr[i][1];
             printf("New account number is: %d \n",acc_num);
             return;
         }
@@ -46,13 +51,17 @@ void openAccount() {
 double deposit() {
     double deposit_amount;
     printf("Please enter amount for deposit: ");
-    scanf("%lf", &deposit_amount);
+    int validate = scanf("%lf", &deposit_amount);
+    if (validate == 0) {
+        return -1;
+    }
     return deposit_amount;
 }
 
 void balance(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
-        printf("Please enter a legal account number between the range 901-950");
+        printf("Failed to read the account number");
+        printf("\n");
         return;
     }
     else if (accs_arr[acc_num-901][0] != 1) {
@@ -68,7 +77,8 @@ void balance(int acc_num) {
 
 void depositTrans(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
-        printf("Please enter a legal account number between the range 901-950");
+        printf("Failed to read the account number");
+        printf("\n");
         return;
     }
     if (accs_arr[acc_num-901][0] != 1) {
@@ -94,12 +104,14 @@ void withdraw(int acc_num) {
         printf("Please enter the amount to withdraw: ");
         scanf("%lf", &w_sum);
         if (accs_arr[acc_num-901][2] < w_sum) {
-            printf("This accound doesn't have enough balance");
+            printf("Cannot withdraw more than the balance");
+            printf("\n");
             return;
         }
         else {
             accs_arr[acc_num-901][2] -= w_sum;
             printf("The new balance is: %.2f",accs_arr[acc_num-901][2]);
+            printf("\n");
         }
     }
 }

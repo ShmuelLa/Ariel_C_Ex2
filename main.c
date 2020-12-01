@@ -3,11 +3,12 @@
 #include "myBank.h"
 
 int main(void) {
+    int validate;
     char ui = 'M';
     menu();
     while (ui != 'E')
     {
-        scanf("%s", &ui);
+        validate = scanf("%s", &ui);
         if (ui == 'O') {
             openAccount();
             menu();
@@ -48,9 +49,10 @@ int main(void) {
             printaccs();
             menu();
         }
-        else if (ui!='O'&&ui!='B'&&ui!='P'&&ui!='I'&&ui!='C'&&ui!='W'&&ui!='D'&&ui!='E') {
+        else if ((ui!='O'&&ui!='B'&&ui!='P'&&ui!='I'&&ui!='C'&&ui!='W'&&ui!='D'&&ui!='E')||(validate==0)) {
             printf("Invalid transaction type");
             printf("\n");
+            menu();
         }
     }
 }
