@@ -7,7 +7,7 @@ all:
 git:
 	git add -A
 	git commit -m "$m"
-	git push origin gidi
+	git push
 
 test:
 	./test.bash
