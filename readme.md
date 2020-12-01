@@ -1,1 +1,2 @@
-# Project 2 C
+# C - Bank Implementation
+![Alt text](WikiPictures/bankgif.gif)

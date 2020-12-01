@@ -57,9 +57,10 @@ void balance(int acc_num) {
     }
     else if (accs_arr[acc_num-901][0] != 1) {
         printf("This account is closed");
+        printf("\n");
     }
     else {
-        printf("The balance of account number %d is: %.2f ",acc_num,accs_arr[acc_num-901][2]);
+        printf("The balance of account number %d is: %.2f",acc_num,accs_arr[acc_num-901][2]);
         printf("\n");
         return;
     }
@@ -99,7 +100,6 @@ void withdraw(int acc_num) {
         else {
             accs_arr[acc_num-901][2] -= w_sum;
             printf("The new balance is: %.2f",accs_arr[acc_num-901][2]);
-            printf("\n");
         }
     }
 }
@@ -135,7 +135,7 @@ void printaccs() {
         if (accs_arr[i][0] == 1) {
             int acc_num;
             acc_num = accs_arr[i][1];
-            printf("The balance of account number %d is: %.2f ",acc_num,accs_arr[acc_num-901][2]);
+            printf("The balance of account number %d is: %.2f",acc_num,accs_arr[acc_num-901][2]);
             printf("\n");
         }
     } 

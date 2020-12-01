@@ -8,9 +8,9 @@ echo ===========================================================================
 echo ---------------------------------Tests Summary--------------------------------------------------
 echo ================================================================================================
 printf '\n'
-diff -q results1.txt outputs/out1.txt
-diff -q results2.txt outputs/out2.txt
-diff -q results3.txt outputs/out3.txt
+diff -q -s results1.txt outputs/out1.txt
+diff -q -s results2.txt outputs/out2.txt
+diff -q -s results3.txt outputs/out3.txt
 printf '\n'
 echo ================================================================================================
 echo ---------------------------------File Comparison------------------------------------------------
