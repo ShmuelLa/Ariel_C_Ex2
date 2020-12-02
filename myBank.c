@@ -34,6 +34,11 @@ void openAccount() {
                 printf("\n");
                 return;
             }
+            if (dsum < 0) {
+                printf("Cannot deposit a negative amount");
+                printf("\n");
+                return;
+            }
             accs_arr[i][0] = 1;
             accs_arr[i][1] = i+901;
             accs_arr[i][2]+=dsum;
@@ -59,14 +64,15 @@ double deposit() {
 }
 
 void balance(int acc_num) {
-    if (acc_num > 950 || acc_num < 901) {
-        printf("Failed to read the account number");
+    if (accs_arr[acc_num-901][0] != 1) {
+        printf("This account is closed");
         printf("\n");
         return;
     }
-    else if (accs_arr[acc_num-901][0] != 1) {
-        printf("This account is closed");
+    else if (acc_num > 950 || acc_num < 901) {
+        printf("Invalid account number");
         printf("\n");
+        return;
     }
     else {
         printf("The balance of account number %d is: %.2f",acc_num,accs_arr[acc_num-901][2]);
@@ -77,12 +83,13 @@ void balance(int acc_num) {
 
 void depositTrans(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
-        printf("Failed to read the account number");
+        printf("Invalid account number");
         printf("\n");
         return;
     }
     if (accs_arr[acc_num-901][0] != 1) {
-        printf("This account is not active");
+        printf("This account is closed");
+        printf("\n");
         return;
     }
     else {
@@ -92,7 +99,7 @@ void depositTrans(int acc_num) {
 
 void withdraw(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
-        printf("Please enter a legal account number between the range 901-950");
+        printf("Invalid account number");
         return;
     }
     if (accs_arr[acc_num-901][0] != 1) {
@@ -134,7 +141,12 @@ void close(int acc_num) {
 void interest() {
     double interest_r;
     printf("Please enter interest rate: ");
-    scanf("%lf", &interest_r);
+    int validate = scanf("%lf", &interest_r);
+    if (validate == 0) {
+        printf("Failed to read the interest rate");
+        printf("\n");
+        return;
+    }
     for (int i=0; i<accs_size; i++) {
         if (accs_arr[i][0] == 1) {
             accs_arr[i][2] *= ((interest_r*0.01)+1);

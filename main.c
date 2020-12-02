@@ -8,7 +8,7 @@ int main(void) {
     menu();
     while (ui != 'E')
     {
-        validate = scanf("%s", &ui);
+        validate = scanf(" %c" , &ui);
         if (ui == 'O') {
             openAccount();
             menu();
@@ -16,29 +16,53 @@ int main(void) {
         if (ui == 'B') {
             int acc_num;
             printf("Please enter account number: ");
-            scanf("%d", &acc_num);
-            balance(acc_num);
+            int Bval = scanf("%d", &acc_num);
+            if (Bval == 1) {
+                balance(acc_num);
+            }
+            else {
+                printf("Failed to read the account number");
+                printf("\n");
+            }
             menu();
         }
         if (ui == 'D') {
             int acc_num;
             printf("Please enter account number: ");
-            scanf("%d", &acc_num);
-            depositTrans(acc_num);
+            int Dval = scanf("%d", &acc_num);
+            if (Dval == 1) {
+                depositTrans(acc_num);
+            }
+            else {
+                printf("Failed to read the account number");
+                printf("\n");
+            }
             menu();
         }
         if (ui == 'W') {
             int acc_num;
             printf("Please enter account number: ");
-            scanf("%d", &acc_num);
-            withdraw(acc_num);
+            int Wval = scanf("%d", &acc_num);
+            if (Wval == 1) {
+                withdraw(acc_num);
+            }
+            else {
+                printf("Failed to read the account number");
+                printf("\n");
+            }
             menu();
         }
         if (ui == 'C') {
             int acc_num;
             printf("Please enter account number: ");
-            scanf("%d", &acc_num);
-            close(acc_num);
+            int Cval = scanf("%d", &acc_num);
+            if (Cval == 1) {
+                close(acc_num);
+            }
+            else {
+                printf("Failed to read the account number");
+                printf("\n");
+            }
             menu();
         }
         if (ui == 'I') {
