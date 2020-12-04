@@ -10,7 +10,7 @@ git:
 	git push
 
 test:
-	./test.bash
+	./test.sh
 
 clean:
 	rm -f *.o

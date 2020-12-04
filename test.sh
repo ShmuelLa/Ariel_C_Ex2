@@ -16,7 +16,6 @@ diff -y --suppress-common-lines -W 150 results2.txt outputs/out2.txt
 echo =============================================Third==============================================
 diff -y --suppress-common-lines -W 150 results3.txt outputs/out3.txt
 echo =============================================Last!==============================================
-#diff -y -W 150 result.txt outputs/output.txt
 diff -y --suppress-common-lines -W 150 result.txt outputs/output.txt
 echo ================================================================================================
 echo ---------------------------------Tests Summary--------------------------------------------------
