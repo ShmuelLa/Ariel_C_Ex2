@@ -16,52 +16,44 @@ int main(void) {
         if (ui == 'B') {
             int acc_num;
             printf("Please enter account number: ");
-            int Bval = scanf("%d", &acc_num);
-            if (Bval == 1) {
+            if (scanf("%d", &acc_num) == 1) {
                 balance(acc_num);
             }
             else {
-                printf("Failed to read the account number");
-                printf("\n");
+                printf("Failed to read the account number\n");
             }
             menu();
         }
         if (ui == 'D') {
             int acc_num;
             printf("Please enter account number: ");
-            int Dval = scanf("%d", &acc_num);
-            if (Dval == 1) {
+            if (scanf("%d", &acc_num) == 1) {
                 depositTrans(acc_num);
             }
             else {
-                printf("Failed to read the account number");
-                printf("\n");
+                printf("Failed to read the account number\n");
             }
             menu();
         }
         if (ui == 'W') {
             int acc_num;
             printf("Please enter account number: ");
-            int Wval = scanf("%d", &acc_num);
-            if (Wval == 1) {
+            if (scanf("%d", &acc_num) == 1) {
                 withdraw(acc_num);
             }
             else {
-                printf("Failed to read the account number");
-                printf("\n");
+                printf("Failed to read the account number\n");
             }
             menu();
         }
         if (ui == 'C') {
             int acc_num;
             printf("Please enter account number: ");
-            int Cval = scanf("%d", &acc_num);
-            if (Cval == 1) {
+            if (scanf("%d", &acc_num) == 1) {
                 close(acc_num);
             }
             else {
-                printf("Failed to read the account number");
-                printf("\n");
+                printf("Failed to read the account number\n");
             }
             menu();
         }
@@ -74,8 +66,7 @@ int main(void) {
             menu();
         }
         else if ((ui!='O'&&ui!='B'&&ui!='P'&&ui!='I'&&ui!='C'&&ui!='W'&&ui!='D'&&ui!='E')||(validate==0)) {
-            printf("Invalid transaction type");
-            printf("\n");
+            printf("Invalid transaction type\n");
             menu();
         }
     }
