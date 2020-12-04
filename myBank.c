@@ -84,7 +84,7 @@ void depositTrans(int acc_num) {
     }
     else {
         double deposit_amount;
-        printf("Please enter amount for deposit: ");
+        printf("Please enter the amount to deposit: ");
         if (scanf("%lf", &deposit_amount) == 0) {
             printf("Failed to read the amount\n");
         }
@@ -104,7 +104,7 @@ void withdraw(int acc_num) {
         return;
     }
     if (bank_arr[acc_num-901][0] != 1) {
-        printf("This account is not active");
+        printf("This account is closed");
         return;
     }
     else {
