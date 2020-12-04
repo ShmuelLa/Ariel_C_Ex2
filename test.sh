@@ -20,6 +20,7 @@ diff -y --suppress-common-lines -W 150 result.txt outputs/output.txt
 echo ================================================================================================
 echo ---------------------------------Tests Summary--------------------------------------------------
 echo ================================================================================================
+#diff -y --suppress-common-lines -W 150 result.txt outputs/out4.txt | cat -t
 printf '\n'
 diff -q -s results1.txt outputs/out1.txt
 diff -q -s results2.txt outputs/out2.txt
