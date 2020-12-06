@@ -27,8 +27,12 @@ This program is designed to manage a bank. using a two dimensional array.
 **C** - :x: Closes a account -only allowed when *the account is open*
 * **input**- the account number.
 
-**I** - :moneybag: increases all of the currently opened accounts by the given interest.
+**I** - :moneybag: Increases all of the currently opened accounts by the given interest.
 * **input**- the amount (percent) of the interest.
+
+**P** - :newspaper: Prints out all the open accounts in the bank
+* **input** none
+* **output**- each account number with it's remaining cash amount
 
 
 
