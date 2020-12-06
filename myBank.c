@@ -3,6 +3,7 @@
 
 /**
  * @brief myBank Project's main library
+ * 
  * Authors @gidon285 @ShmuelLa
  */
 static double bank_arr[50][3]; //Static two Dimensional array representing the bank
