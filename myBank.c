@@ -1,9 +1,13 @@
 #include <stdio.h>
 #include "myBank.h"
 
-static double bank_arr[50][3];
-static int bank_size = sizeof(bank_arr)/sizeof(bank_arr[0]);
-static char* menu_text = "\nPlease choose a transaction type:"
+/**
+ * @brief myBank Project's main library
+ * Authors @gidon285 @ShmuelLa
+ */
+static double bank_arr[50][3]; //Static two Dimensional array representing the bank
+static int bank_size = sizeof(bank_arr)/sizeof(bank_arr[0]); //Static int representing the bank's size
+static char* menu_text = "\nPlease choose a transaction type:" //Static char representing the menu to be printed
     "\n O-Open Account"
     "\n B-Balance Inquiry" 
     "\n D-Deposit"
@@ -14,10 +18,19 @@ static char* menu_text = "\nPlease choose a transaction type:"
     "\n E-Exit"
     "\n";
 
+/**
+ * @brief a void method that prints tha bank's main menu
+ */
 void menu() {
     printf("%s",menu_text);
 }
 
+/**
+ * @brief a void method that prompts the bank to open a new account
+ * and deposit first funds.
+ * The bank cannot hold more than 50 account (Range of 901-950)
+ * and can receive only positive double for deposit
+ */
 void openAccount() {
     int counter = 0;
     for (int i=0; i<bank_size; i++) {
@@ -49,6 +62,11 @@ void openAccount() {
     }
 }
 
+/**
+ * @brief a void method that is being used internally only for the deposit purpose
+ * 
+ * @return double The amount for deposit, -1 is the input was wrong
+ */
 double deposit() {
     double deposit_amount;
     printf("Please enter amount for deposit: ");
@@ -58,6 +76,11 @@ double deposit() {
     return deposit_amount;
 }
 
+/**
+ * @brief A method to check the accounts balance and prints it out
+ * 
+ * @param acc_num - The account number to be checked
+ */
 void balance(int acc_num) {
     if (bank_arr[acc_num-901][0] != 1) {
         printf("This account is closed\n");
@@ -73,6 +96,12 @@ void balance(int acc_num) {
     }
 }
 
+/**
+ * @brief Deposit to an already opened account.
+ * Prints an error if receives wrong input or if there is no such account currently open
+ * 
+ * @param acc_num - The account for deposit
+ */
 void depositTrans(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
         printf("Invalid account number\n");
@@ -98,6 +127,12 @@ void depositTrans(int acc_num) {
     }
 }
 
+/**
+ * @brief Whitdraw an amount from an existing account,
+ * Returns an error if the account is closed or if receives a wrong input
+ * 
+ * @param acc_num  - The account number for whitdraw
+ */
 void withdraw(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
         printf("Invalid account number");
@@ -129,6 +164,12 @@ void withdraw(int acc_num) {
     }
 }
 
+/**
+ * @brief Close an existing account
+ * Prints an error if the account is not open or if receives wrong inoput
+ * 
+ * @param acc_num - The account to be closed
+ */
 void close(int acc_num) {
     if (acc_num > 950 || acc_num < 901) {
         printf("Invalid account number\n");
@@ -146,6 +187,10 @@ void close(int acc_num) {
     }
 }
 
+/**
+ * @brief Raises all the account balance all over the bank with a received interest rate
+ * Prints an error if receives wrong input or interest rage
+ */
 void interest() {
     double interest_r;
     printf("Please enter interest rate: ");
@@ -163,6 +208,9 @@ void interest() {
     }
 }
 
+/**
+ * @brief Prints out all the open accounts in the bank with their current balace
+ */
 void printaccs() {
     for (int i=0; i<bank_size; i++) {
         if (bank_arr[i][0] == 1) {
@@ -170,5 +218,5 @@ void printaccs() {
             acc_num = bank_arr[i][1];
             printf("The balance of account number %d is: %.2f\n",acc_num,bank_arr[acc_num-901][2]);
         }
-    } 
+    }
 }
