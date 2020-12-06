@@ -19,17 +19,17 @@ static char* menu_text = "\nPlease choose a transaction type:" //Static char rep
     "\n";
 
 /**
- * @brief a void method that prints tha bank's main menu
+ * @brief Prints out tha bank's main menu
  */
 void menu() {
     printf("%s",menu_text);
 }
 
 /**
- * @brief a void method that prompts the bank to open a new account
- * and deposit first funds.
+ * @brief Open's a new account and adds deposit first funds.
  * The bank cannot hold more than 50 account (Range of 901-950)
- * and can receive only positive double for deposit
+ * Returns an error otherwise.
+ * Can receive only positive double for deposit
  */
 void openAccount() {
     int counter = 0;
@@ -77,7 +77,7 @@ double deposit() {
 }
 
 /**
- * @brief A method to check the accounts balance and prints it out
+ * @brief Check the accounts balance and prints it out
  * 
  * @param acc_num - The account number to be checked
  */
